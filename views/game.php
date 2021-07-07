@@ -135,7 +135,7 @@
                         <img style="width:90px" src="../Images/yellowSquare.jpg" alt="big filled yellow square">
                     </td>
                     <td id="bhys" onclick="choosePiece(this)">
-                        <img style="width:90px" src="../Images/yellowSquareHoled.jpg" alt="big holed yellow square">
+                        <img style="width:90px" src="../Images/yellowSquareHoled.png" alt="big holed yellow square">
                     </td>
                 </tr>
                 <tr>
@@ -143,7 +143,7 @@
                         <img style="width:40px" src="../Images/yellowSquare.jpg" alt="small filled yellow square">
                     </td>
                     <td id="shys" onclick="choosePiece(this)">
-                        <img style="width:40px" src="../Images/yellowSquareHoled.jpg" alt="small holed yellow square">
+                        <img style="width:40px" src="../Images/yellowSquareHoled.png" alt="small holed yellow square">
                     </td>
                 </tr>
             </table>
