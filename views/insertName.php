@@ -14,12 +14,8 @@
 
     <?php 
         session_start();
-        if(isset($_SESSION["gameCode"])) {
-            $gameCode = $_SESSION["gameCode"];
-        } else {
-            $gameCode = $_GET["gameCode"];
-            $_SESSION["gameCode"] = $gameCode;
-        }
+        $gameCode = $_GET["gameCode"];
+        $_SESSION["gameCode"] = $gameCode;
     ?>
 
     <div id="titleMargin" style="margin-top: 60px;"></div>
