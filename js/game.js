@@ -1,5 +1,6 @@
 var timeToChoose = true;
 var pieceToBePlaced = null;
+var placedPieces = [];
 
 /**
  * Function to change the turn of the players once the player finished its own turn
@@ -28,12 +29,27 @@ function markActualPiece(td, remark) {
 }
 
 /**
- * This funtion will run when clicking the panel, where the piece will be placed
+ * Function that let you know if you achieved the victory with the last movement
+ * @param {Placed where was placed the last piece} place 
+ */
+function win() {
+    //TODO
+    var lastPosition = placedPieces[placedPieces.length-1][0];
+    var lastPiece = placedPieces[placedPieces.length-1][1];
+    var placeId = lastPosition;
+    var row = placeId.split("-")[0];
+    var col = placeId.split("-")[1];
+
+    return false;
+}
+
+/**
+ * This function will run when clicking the panel, where the piece will be placed
  * @param {Where to place the piece. Given from the html by clicking} place 
  */
 function placePiece(place) {
     if (timeToChoose || pieceToBePlaced == null) {
-        alert("This is not what have to be done now");
+        alert("This is not what have to be done now. You have to choose a piece.");
         return;
     }
     var td = pieceToBePlaced.parentNode;
@@ -43,6 +59,14 @@ function placePiece(place) {
         return;
     }
     place.append(pieceToBePlaced);
+    let newPiece = [place.id,pieceToBePlaced.name];
+    placedPieces.push(newPiece);
+    // If you have just won...
+    if (win()) {
+        //TODO 
+        return;
+    }
+    
     $("#infoText").text(`Choose the piece that your opponent should move.`);
     markActualPiece(td, remark=false);
     timeToChoose = true;
@@ -51,11 +75,11 @@ function placePiece(place) {
 
 /**
  * Function that make everything when the player click the piece that the opponent must place.
- * @param {Object of the clicked td} td 
+ * @param {td: Container of the image} td 
  */
 function choosePiece(td) {
     if (!timeToChoose) {
-        alert("This is not what have to be done now");
+        alert("This is not what have to be done now. You have to choose a place.");
         return;
     }
     pieceToBePlaced = td.firstElementChild;
