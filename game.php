@@ -23,7 +23,7 @@
 
     <script>
     function goToStartPage() {
-        if (confirm('Are you sure you want to turn back to the start page?')) {
+        if (confirm('Are you sure you want to turn back to the start page? This will restart your game.')) {
             window.location = 'index.php';
         }
     }
@@ -94,7 +94,7 @@
             </table>
         </div>
         <div style="width:55%; display:inline-block">
-            <table class="board">
+            <table id="panel" class="board">
                 <tr>
                     <td id="1-1" onclick="placePiece(this)"></td>
                     <td id="1-2" onclick="placePiece(this)"></td>
