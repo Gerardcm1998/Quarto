@@ -66,9 +66,9 @@ function haveSomethingInCommon(pieces) {
 
 /**
  * If there is a fulfilled thing, it returns an array with it, and an empty array otherwise.
- * @param {*} row 
- * @param {*} col 
- * @param {*} diag 
+ * @param {number of row. Value 0 if there is no row} row 
+ * @param {number of col. Value 0 if there is no col} col 
+ * @param {number of diag. Value 0 if there is no diag} diag 
  * @returns 
  */
 function win(row, col, diag) {
