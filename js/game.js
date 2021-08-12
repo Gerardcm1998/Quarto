@@ -164,7 +164,7 @@ function fourPiecesAligned() {
 }
 
 /**
- * This function will run when clicking the where the piece will be placed
+ * This function will run when clicking the space where the piece will be placed
  * @param {Where to place the piece. Given from the html by clicking} place 
  */
 function placePiece(place) {
@@ -190,10 +190,7 @@ function placePiece(place) {
     // If four pieces are aligned with success, you have win
     var victoryArray = fourPiecesAligned();
     if (victoryArray.length != 0) {
-        sessionStorage.setItem("winner",$(".playerSelected").html());
-        sessionStorage.setItem("victory", JSON.stringify(victoryArray));
-        sessionStorage.setItem("board", $("#panel").html());
-        window.location = "victory.php";
+        openVictoryScreen(victoryArray);
     }
 
     // If there is no victory, prepare the next turn
@@ -229,3 +226,18 @@ function choosePiece(td) {
 
 }
 
+/**
+ * Opens the victory screen where some player has won
+ */
+function openVictoryScreen(victoryArray) {
+    sessionStorage.setItem("winner",$(".playerSelected").prop("id").charAt(6));
+    sessionStorage.setItem("victory", JSON.stringify(victoryArray));
+    sessionStorage.setItem("board", $("#panel").html());
+
+    var winner = parseInt(sessionStorage.getItem("winner"));
+    var points = JSON.parse(sessionStorage.getItem("points"));
+    ++points[winner-1];
+    sessionStorage.setItem("points",JSON.stringify(points));
+
+    window.location = "victory.php";
+}

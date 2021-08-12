@@ -3,6 +3,7 @@
 <head>
     <?php 
         session_start();
+        session_reset();
         $step2 = isset($_GET["gameCode"]);
         $displayStep2 = $step2 ? "block" : "none";
         $displayStep1 = $step2 ? "none" : "block";
@@ -12,6 +13,11 @@
     <script src="./js/jquery-ui.min.js"></script>
     <title>Quarto</title>
 
+    <script>
+        $(document).ready(function() {
+            sessionStorage.clear();
+        })
+    </script>
     
 </head>
 

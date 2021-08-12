@@ -22,6 +22,16 @@
     ?>
 
     <script>
+    $(document).ready(function() {
+        var nickname = new Array(<?php echo "'$nickname1', '$nickname2'"?>);
+        sessionStorage.setItem("nicknames", JSON.stringify(nickname));
+        var points = JSON.parse(sessionStorage.getItem("points"));
+        if(points == null) {
+            points = new Array(0, 0);
+            sessionStorage.setItem("points", JSON.stringify(points));
+        }
+    });
+
     function goToStartPage() {
         if (confirm('Are you sure you want to turn back to the start page? This will restart your game.')) {
             window.location = 'index.php';
