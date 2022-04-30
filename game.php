@@ -26,7 +26,7 @@
         var nickname = new Array(<?php echo "'$nickname1', '$nickname2'"?>);
         sessionStorage.setItem("nicknames", JSON.stringify(nickname));
         var points = JSON.parse(sessionStorage.getItem("points"));
-        if(points == null) {
+        if (points == null) {
             points = new Array(0, 0);
             sessionStorage.setItem("points", JSON.stringify(points));
         }
